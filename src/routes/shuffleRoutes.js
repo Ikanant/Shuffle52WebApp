@@ -4,10 +4,11 @@ var bookRouter = express.Router();
 
 var router = function(){
 
+    var bookService = require('../services/shuffleService')();
+    var shuffleController = require('../controllers/shuffleController')(bookService);
 
-    var shuffleController = require('../controllers/shuffleController')();
     bookRouter.route('/historyDeck').get(shuffleController.getDeckHistory);
-    bookRouter.route('/newDeck').get(shuffleController.getDeckHistory);
+    bookRouter.route('/newDeck').get(shuffleController.setNewDeck);
 
     return bookRouter;
 };

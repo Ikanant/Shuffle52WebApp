@@ -8,7 +8,9 @@
 
     </header>
 
-    <h1> History <%=history%> </h1>
+		<% for(var i=0; i<history.length; i++){%>
+    	<li><a><%=history[i].cards%></a></li>
+    <%}%>
 
     <footer>
 
