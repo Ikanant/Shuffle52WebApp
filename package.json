@@ -18,7 +18,8 @@
   "homepage": "https://github.com/Ikanant/Shuffle52WebApp#readme",
   "dependencies": {
     "ejs": "^2.4.1",
-    "express": "^4.13.4"
+    "express": "^4.13.4",
+    "mongodb": "^2.1.18"
   },
   "devDependencies": {
     "gulp": "^3.9.1",
