@@ -13,7 +13,9 @@ app.set('view engine', 'ejs');
 app.use('/Shuffle', shuffleRouter);
 
 app.get('/', function(req, res){
-    res.render('index', {title: 'EJS Title', nav: [{Link:'Books', Text:'Books'}, {Link: 'Authors', Text: 'Authors'}]});
+    res.render('index',
+      { nav: 'index'}
+    );
 });
 
 app.listen(port, function(err){

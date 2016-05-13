@@ -2,7 +2,7 @@ var http = require('http');
 
 var shuffleService = function() {
     var getRandomList = function(cb){
-      var url = 'http://applicant.pointsource.us/api/random/5734dc1c7e3d61136595a0d9?min=1&max=10&num=5';
+      var url = 'http://applicant.pointsource.us/api/random/5734dc1c7e3d61136595a0d9?min=1&max=53&num=52';
 
       http.get(url, function(res){
         var body = '';

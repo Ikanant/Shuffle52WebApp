@@ -1,19 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-
-	</head>
+	<%-include commons/head.ejs%>
 	<body>
-    <header>
+		<%-include commons/navbar.ejs%>
 
-    </header>
-
+<div class="container">
+    <h1>Previous Deck History:</h1>
 		<% for(var i=0; i<history.length; i++){%>
-    	<li><a><%=history[i].cards%></a></li>
+    	<h4><%=history[i].cards%></h4>
     <%}%>
-
-    <footer>
-
-    </footer>
+</div><!-- /.container -->
+	<!-- script references -->
+		<%-include commons/scripts.ejs%>
+		
 	</body>
 </html>

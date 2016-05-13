@@ -13,6 +13,7 @@ var bookController = function(shuffleService){
             collection.find({}).toArray(
                 function (err, results) {
                     res.render('history', {
+                      nav: 'history',
                       history: results,
                     })
                 }
@@ -24,10 +25,11 @@ var bookController = function(shuffleService){
       shuffleService.getRandomList(function(err, newDeck){
         mongodb.connect(url, function(err, db) {
           var collection = db.collection('history');
-
-          console.log('->>');
           collection.insertOne({'cards': newDeck.numbers}, function(err, results){
-              res.send('hello');
+              res.render('newDeck', {
+                nav: 'new',
+                newDeck: newDeck.numbers,
+              })
               db.close();
           });
         });
