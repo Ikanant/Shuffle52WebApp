@@ -3,7 +3,7 @@ var objectId = require('mongodb').ObjectId;
 
 
 var bookController = function(shuffleService){
-    var url = 'mongodb://localhost:27017/shuffleHistory';
+    var url = 'mongodb://youknownothing:johnsnow@ds023042.mlab.com:23042/shufflehistory';
 
     var getDeckHistory = function (req, res) {
 
