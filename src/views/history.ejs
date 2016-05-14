@@ -4,14 +4,23 @@
 	<body>
 		<%-include commons/navbar.ejs%>
 
-<div class="container">
+	<div class="container">
     <h1>Previous Deck History:</h1>
-		<% for(var i=0; i<history.length; i++){%>
-    	<h4><%=history[i].cards%></h4>
-    <%}%>
-</div><!-- /.container -->
-	<!-- script references -->
-		<%-include commons/scripts.ejs%>
-		
+
+		<div class="panel panel-default">
+		  <!-- Default panel contents -->
+		  <div class="panel-heading">Sorted</div>
+
+		  <!-- List group -->
+		  <ul class="list-group ">
+				<% for(var i=0; i<history.length; i++){%>
+		    	  <li class="list-group-item"><%=history[i].cards%></li>
+		    <%}%>
+		  </ul>
+		</div>
+	</div>
+
+	<%-include commons/scripts.ejs%>
+
 	</body>
 </html>

@@ -12,19 +12,26 @@
 
         <% if (nav=="index") {%>
           <li class="active"><a href="/">Home</a></li>
-          <li><a href="/shuffle/newDeck">Generate New Deck</a></li>
+          <li><a href="/shuffle/generateDeck">Generate Deck</a></li>
           <li><a href="/shuffle/historyDeck">Deck History</a></li>
         <%}%>
 
-        <% if (nav=="new") {%>
+        <% if (nav=="generateDeck") {%>
           <li><a href="/">Home</a></li>
-          <li class="active"><a href="/shuffle/newDeck">Generate New Deck</a></li>
+          <li class="active"><a href="/shuffle/generateDeck">Generate Deck</a></li>
           <li><a href="/shuffle/historyDeck">Deck History</a></li>
         <%}%>
+
+        <!-- <% if (nav=="unsorted") {%>
+          <li><a href="/">Home</a></li>
+          <li><a href="/shuffle/newSortedDeck">Generate Sorted Deck</a></li>
+          <li class="active"><a href="/shuffle/newUnsortedDeck">Generate Unsorted Deck</a></li>
+          <li><a href="/shuffle/historyDeck">Deck History</a></li>
+        <%}%> -->
 
         <% if (nav=="history") {%>
           <li><a href="/">Home</a></li>
-          <li><a href="/shuffle/newDeck">Generate New Deck</a></li>
+          <li><a href="/shuffle/generateDeck">Generate Deck</a></li>
           <li class="active"><a href="/shuffle/historyDeck">Deck History</a></li>
         <%}%>
 

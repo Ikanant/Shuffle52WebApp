@@ -1,13 +1,10 @@
 var mongodb = require('mongodb').MongoClient;
-var objectId = require('mongodb').ObjectId;
+var radixSort = require('radix-sort');
 
-
-var bookController = function(shuffleService){
-    var url = 'mongodb://youknownothing:johnsnow@ds023042.mlab.com:23042/shufflehistory';
+var shuffleController = function(shuffleService){
+    var url = 'mongodb://pointsource:apple@ds023042.mlab.com:23042/shufflehistory';
 
     var getDeckHistory = function (req, res) {
-
-
         mongodb.connect(url, function(err, db){
             var collection = db.collection('history');
             collection.find({}).toArray(
@@ -21,27 +18,40 @@ var bookController = function(shuffleService){
         });
     }
 
-    var setNewDeck = function (req, res) {
+    var generateDeck = function (req, res) {
       shuffleService.getRandomList(function(err, newDeck){
         mongodb.connect(url, function(err, db) {
           var collection = db.collection('history');
           collection.insertOne({'cards': newDeck.numbers}, function(err, results){
               res.render('newDeck', {
-                nav: 'new',
+                nav: 'generateDeck',
                 newDeck: newDeck.numbers,
               })
               db.close();
           });
         });
-      });
-
-
+      })
     }
+
+    // var setNewSortedDeck = function (req, res) {
+    //   shuffleService.getRandomList(function(err, newDeck){
+    //     mongodb.connect(url, function(err, db) {
+    //       var collection = db.collection('history');
+    //       var ascendingDeck = radixSort(newDeck.numbers);
+    //       collection.insertOne({'cards': ascendingDeck}, function(err, results){
+    //           res.render('newDeck', {
+    //             nav: 'sorted',
+    //             newDeck: ascendingDeck,
+    //           })
+    //           db.close();
+    //       });
+    //     });
+    //   })
 
     return {
         getDeckHistory: getDeckHistory,
-        setNewDeck: setNewDeck,
+        generateDeck: generateDeck,
     }
 }
 
-module.exports = bookController;
+module.exports = shuffleController;

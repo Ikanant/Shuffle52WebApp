@@ -8,7 +8,8 @@ var router = function(){
     var shuffleController = require('../controllers/shuffleController')(bookService);
 
     bookRouter.route('/historyDeck').get(shuffleController.getDeckHistory);
-    bookRouter.route('/newDeck').get(shuffleController.setNewDeck);
+    bookRouter.route('/generateDeck').get(shuffleController.generateDeck);
+    //bookRouter.route('/newUnsortedDeck').get(shuffleController.setNewUnsortedDeck);
 
     return bookRouter;
 };

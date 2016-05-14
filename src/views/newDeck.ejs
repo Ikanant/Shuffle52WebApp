@@ -6,9 +6,17 @@
 		<%-include commons/navbar.ejs%>
 
 		<div class="container">
-		  <h1>The New Deck created is:</h1>
+			<h1>Retrieved:</h1>
 
-		  <h4><%=newDeck%></h4>
+			<div class="panel panel-default">
+				<!-- Default panel contents -->
+				<div class="panel-heading">Sorted</div>
+
+				<!-- List group -->
+				<ul class="list-group">
+					<li class="list-group-item"><%=newDeck%></li>
+				</ul>
+			</div>
 		</div>
 
 		<%-include commons/scripts.ejs%>
